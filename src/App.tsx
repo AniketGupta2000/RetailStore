@@ -1,24 +1,65 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
+import { Aboutus } from './components/Aboutus';
+import { Contactus } from './components/Contactus';
+import { Navigations } from './components/Navbar';
+import { AddProduct } from './components/AddProduct';
+import { PageNotFound } from './components/PageNotFound';
+import { Demo } from './components/Demo';
+import { Logout } from './components/Logout';
+import { Product } from './utility/Product';
+import ProductDetails from './components/ProductDetails';
+import UpdateProduct from './components/UpdateProduct';
+import { DemoType } from './components/DemoType';
+import { AddProductType } from './components/AddProductType';
+import UpdateProductType from './components/UpdateProductType';
+import ProductDetailsType from './components/ProductDetailsType';
+import { ProductContext } from './context/ProductContext';
+import { Cart } from './components/Cart';
+import Bill from './components/Bill';
+import { Login } from './components/Login';
+
+
 
 function App() {
+    // const msg ="Hello";
+    const products:Product[]=[{
+      id:1001,name:"Laptop",price:49999},
+      {id:1002,name:"Headphone",price:12999},
+      {id:1003,name:"Mobile",price:25999},
+      {id:1004,name:"LCD",price:25000}];
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <ProductContext.Provider value={products}>
+      <Router>
+      <Navigations></Navigations>
+        <Routes>
+        {/* <Route path ="/"  element ={<Demo></Demo>}></Route> */}
+        <Route path ="/aboutus" element ={<Aboutus></Aboutus>}></Route>
+        <Route path ="/contactus"element ={<Contactus></Contactus>}></Route>
+        <Route path ="/manageproduct" element={<Demo></Demo>}></Route>
+        <Route path="/addproduct" element={<AddProduct></AddProduct>}></Route>
+        <Route path ="/manageproducttype" element={<DemoType></DemoType>}></Route>
+        <Route path="/addproducttype" element={<AddProductType></AddProductType>}></Route>
+        {/* <Route path ="/editProduct/:id"element ={<EditProduct></EditProduct>}></Route> */}
+        <Route path ="/productdetails" element={<ProductDetails/>}></Route>
+        <Route path="/productdetails/:id" element={<ProductDetails/>}></Route>
+        <Route path ="/productdetailstype" element={<ProductDetailsType/>}></Route>
+        <Route path ="/update/:id" element={<UpdateProduct></UpdateProduct>}></Route>
+        <Route path ="/updatetype/:id" element={<UpdateProductType></UpdateProductType>}></Route>
+        <Route path="/productdetailstype/:id" element={<ProductDetailsType/>}></Route>
+        <Route path ="/cart" element={<Cart></Cart>}></Route>
+        <Route path ="/managebill"element ={<Bill></Bill>}></Route>
+        <Route path ="/logout"element ={<Logout></Logout>}></Route>
+        <Route path ="/"element ={<Login></Login>}></Route>
+
+        <Route path ="/*"element ={<PageNotFound></PageNotFound>}></Route>
+        </Routes>
+      </Router>
+      </ProductContext.Provider>
     </div>
   );
 }

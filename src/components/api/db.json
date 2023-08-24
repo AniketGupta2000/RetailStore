@@ -1,0 +1,19 @@
+{
+  "products": [
+    {
+      "name": "Mobile",
+      "price": "15999",
+      "id": 1005
+    },
+    {
+      "name": "Mic",
+      "price": "1199",
+      "id": 1006
+    },
+    {
+      "name": "Bluetooth Speaker",
+      "price": "3999",
+      "id": 1007
+    }
+  ]
+}

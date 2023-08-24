@@ -1,0 +1,20 @@
+{
+  "productstype": [
+    {
+      "name": "WashingMachine",
+      "id": 10
+    },
+    {
+      "name": "SmartWatch",
+      "id": 11
+    },
+    {
+      "name": "Air Conditioners",
+      "id": 12
+    },
+    {
+      "name": "MicroWave",
+      "id": 13
+    }
+  ]
+}
